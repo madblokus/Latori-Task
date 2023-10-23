@@ -24,7 +24,6 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <h1 className="text-black">Hello world!</h1>
         <Outlet />
 
         <Scripts />
