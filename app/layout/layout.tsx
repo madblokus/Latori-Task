@@ -1,16 +1,19 @@
-import { Link } from '@remix-run/react';
-import React from 'react';
+import { Link } from "@remix-run/react";
 
-export default function Layout({ children }) {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="container mx-auto">
-      <nav className="py-4">
-        <Link to="/" className="mr-4">
-          Home
-        </Link>
-        <Link to="/cart">Open Cart</Link>
+    <div className="w-full">
+      <nav className="bg-black w-full text-white py-4">
+        <div className="flex justify-between m-auto max-w-none lg:max-w-5xl px-8">
+          <Link to="/" className="mr-4">
+            Product List
+          </Link>
+          <button>Open Cart</button>
+        </div>
       </nav>
       <main>{children}</main>
     </div>
   );
-}
+};
+
+export default Layout;
