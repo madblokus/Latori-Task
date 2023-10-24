@@ -18,6 +18,7 @@ const Cart: React.FC = () => {
         {state.products.map((product, index) => (
           <li key={index}>
             Product ID: {product.id}, Quantity: {product.quantity}
+            {product.price*product.quantity}
             <button onClick={() => handleRemove(product.id)}>Remove</button>
           </li>
         ))}

@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useReducer } from "react";
 
 interface Product {
   id: string;
+  price: number;
   quantity: number;
 }
 
@@ -41,13 +42,18 @@ const cartReducer = (state: CartState, action: CartActions): CartState => {
         return {
           products: state.products.map((product) =>
             product.id === action.payload.id
-              ? { ...product, quantity: product.quantity + 1 }
+              ? {
+                  ...product,
+                  quantity: product.quantity + 1,
+                  price: action.payload.price,
+                }
               : product
           ),
         };
       }
 
       return { products: [...state.products, action.payload] };
+
     case "INIT_CART":
       return { products: action.payload };
     case "REMOVE_FROM_CART":

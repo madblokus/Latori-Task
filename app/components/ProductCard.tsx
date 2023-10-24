@@ -5,16 +5,17 @@ import { useCart } from "../contexts/CartContext";
 type ProductCardProps = {
   id: string;
   images: string[];
+  price: string;
   children: React.ReactNode;
 };
 
-const ProductCard: React.FC<ProductCardProps> = ({ id, images, children }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ id, images, price, children }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const { dispatch } = useCart();
 
   const addToCart = () => {
-    dispatch({ type: 'ADD_TO_CART', payload: { id, quantity: 1 } });
+    dispatch({ type: 'ADD_TO_CART', payload: { id, price: price, quantity: 1 } });
   };
 
 
@@ -36,11 +37,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, images, children }) => {
       className="border p-4 flex flex-row lg:flex-col rounded-md gap-4 lg:gap-0 justify-between lg:justify-normal"
     >
       <div className="relative">
-        <div className="w-[240px]">
+        <div className="w-[240px] lg:w-full">
           <img
             src={images[currentImageIndex]}
             alt={`Product ${currentImageIndex + 1}`}
-            className="w-[240px] lg:w-full h-auto lg:h-60 object-cover lg:mb-4"
+            className="lg:w-full h-auto lg:h-60 object-cover lg:mb-4"
           />
         </div>
         <button

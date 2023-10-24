@@ -41,7 +41,7 @@ export default function ProductsList(props: any) {
       <div className="flex flex-col w-full lg:flex-row lg:w-full flex-wrap justify-between m-auto max-w-none lg:max-w-5xl px-8 py-4">
         {allProducts.map((product: any) => (
           <div key={product.id} className="w-full lg:w-1/3 px-4 py-4">
-            <ProductCard id={product.id} images={product.images}>
+            <ProductCard price={product.price} id={product.id} images={product.images}>
               <Typography variant="heading">{product.title}</Typography>
               <Typography variant="description">${product.price}</Typography>
             </ProductCard>
@@ -50,7 +50,7 @@ export default function ProductsList(props: any) {
         ))}
         <Cart />
       </div>
-      <Button className="w-[300px] uppercase" onClick={loadMoreProducts}>
+      <Button className="w-full lg:w-[300px] uppercase" onClick={loadMoreProducts}>
         Load More
       </Button>
     </div>
