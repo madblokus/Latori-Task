@@ -1,6 +1,5 @@
 import React from 'react';
-import { useCart } from '../../contexts/CartContext';
-
+import { useCart } from '../contexts/CartContext';
 
 const Cart: React.FC = () => {
   const { state } = useCart();

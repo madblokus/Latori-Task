@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import { useCart } from "../contexts/CartContext";
 
 type ProductCardProps = {
   id: string;
@@ -9,9 +10,13 @@ type ProductCardProps = {
 
 const ProductCard: React.FC<ProductCardProps> = ({ id, images, children }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const { dispatch } = useCart();
+
   const addToCart = () => {
-    // logic for adding to cart
+    dispatch({ type: 'ADD_TO_CART', payload: { id, quantity: 1 } });
   };
+
 
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) =>
@@ -55,7 +60,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, images, children }) => {
       <div className="m-auto lg:m-0">
         <Button
           className="w-72 lg:w-full uppercase block"
-          onClick={() => console.log("Button clicked")}
+          onClick={addToCart}
         >
           Add to Cart
         </Button>

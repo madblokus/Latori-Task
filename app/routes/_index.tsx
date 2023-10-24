@@ -5,6 +5,7 @@ import ProductCard from "../components/ProductCard";
 import Typography from "../components/Typography";
 import Button from "../components/Button";
 import { useState } from "react";
+import Cart from "./cart";
 
 export const loader = async () => {
   const response = await fetch(
@@ -45,7 +46,9 @@ export default function ProductsList(props: any) {
               <Typography variant="description">${product.price}</Typography>
             </ProductCard>
           </div>
+          
         ))}
+        <Cart />
       </div>
       <Button className="w-[300px] uppercase" onClick={loadMoreProducts}>
         Load More
