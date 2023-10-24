@@ -31,11 +31,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, images, children }) => {
       className="border p-4 flex flex-row lg:flex-col rounded-md gap-4 lg:gap-0 justify-between lg:justify-normal"
     >
       <div className="relative">
-        <div className="w-[240px]">
+        <div className="w-[240px] lg:w-full">
           <img
             src={images[currentImageIndex]}
             alt={`Product ${currentImageIndex + 1}`}
-            className="w-[240px] lg:w-full h-auto lg:h-60 object-cover lg:mb-4"
+            className="w-full h-auto lg:h-60 object-cover lg:mb-4"
           />
         </div>
         <button
