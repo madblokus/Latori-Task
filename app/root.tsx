@@ -1,6 +1,7 @@
 import { Links, LiveReload, Meta, Outlet, Scripts } from "@remix-run/react";
 import styles from "./tailwind.css";
 import Layout from "./layout/layout";
+import { CartProvider } from "./contexts/CartContext";
 
 export const links = () => [
   { rel: "stylesheet", href: styles },
@@ -16,11 +17,13 @@ const App = () => {
         <Links />
       </head>
       <body>
-        <Layout>
-          <Outlet />
-        </Layout>
-        <Scripts />
-        <LiveReload />
+        <CartProvider>
+          <Layout>
+            <Outlet />
+          </Layout>
+          <Scripts />
+          <LiveReload />
+        </CartProvider>
       </body>
     </html>
   );
